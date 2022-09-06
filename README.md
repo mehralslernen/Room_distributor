@@ -8,3 +8,5 @@ It gives as output a suitable distribution calculated automatically.
 
 To be enhanced:
 1. Determine preference for larger rooms, not in the number of rooms (as now) but in the number of beds.
+2. Profile für verschiedene Unterkünfte mit Nachbearbeitung zum Löschen nicht verfügbarer Zimmer
+3. Mit Fleeth verbinden
