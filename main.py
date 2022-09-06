@@ -1,21 +1,11 @@
-'''
-arr_listoflists = [arr0, arr1, ...]
+from itertools import groupby
 
-for array in arr_listoflists :
-	if array != completely(NA):
-		dict.append(arr: [g/b, len(arr)]
+input_room = [0 for a in range(5)]
+for idx, val in enumerate(input_room):
+    input_room[idx] = int(input(f"How many bedrooms with {idx+1} bed(s)? "))
 
-print(girls)
-for y in dict where dict(g):
-	room with y beds
-
-print(boys)
-for y in dict where dict(b):
-	room with y beds
-
-'''
-
-input_room = [0,2,1,2,3]
+girls = int(input(f"How many girls? "))
+boys = int(input(f"How many boys? "))
 
 rooms_1bed = [[0]*1 for count in range(input_room[0])]
 rooms_2bed = [[0]*2 for count in range(input_room[1])]
@@ -53,12 +43,6 @@ def find_index_max(dictionary):
 
     return index_max
 
-
-girls = 18
-boys = 10
-
-print("Begin", rooms_listoflists)
-
 while girls > 0 or boys > 0:
     if girls > boys:
 
@@ -91,21 +75,25 @@ while girls > 0 or boys > 0:
             else:
                 pass
         
-print("End", rooms_listoflists)
+girls_rooms = []
+boys_rooms = []
 
+for rooms in rooms_listoflists:
+    for element in rooms:
+        if all(item != 0 for item in element) and all(item == 1 for item in element):
+            girls_rooms.append(element)
+        elif all(item != 0 for item in element) and all(item == 2 for item in element):
+            boys_rooms.append(element)
+        else:
+            pass
 
+girls_rooms = [list(g) for k, g in groupby(girls_rooms, key=len)]
+boys_rooms = [list(g) for k, g in groupby(boys_rooms, key=len)]
 
+print("Girls distribution:")
+for element in girls_rooms:
+    print(f"{len(element)} rooms of {len(element[0])} girls.")
 
-
-'''
-Prompt dialogues:
-
-input_room = [0 for a in range(5)]
-for idx, val in enumerate(input_room):
-    input_room[idx] = int(input(f"How many bedrooms with {idx+1} bed(s)? "))
-
-girls = int(input(f"How many girls? "))
-boys = int(input(f"How many boys? "))
-
-
-'''
+print("Boys distribution:")
+for element in boys_rooms:
+    print(f"{len(element)} rooms of {len(element[0])} boys.")
